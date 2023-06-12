@@ -1,16 +1,105 @@
-<!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PHP Dischi con axios</title>
-    <link rel="stylesheet" href="./css/style.css">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
+	<title>PHP Dischi con axios</title>
+	<link rel="stylesheet" href="./css/style.css">
 </head>
+
 <body>
-    
-    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+	<div id="app">
+
+		<header>
+			<div class="container" id="header-container">
+				<div class="header-left">
+					<img src="http://pluspng.com/img-png/spotify-logo-png-open-2000.png" alt="">
+				</div>
+			</div>
+		</header>
+
+		<main>
+			<div class="container">
+				<div id="discs-container">
+					<div class="disc" v-for="(disc, i) in arrDiscs" @click="showDiscDetails(i)">
+						<img :src="disc.poster" />
+						<h3>{{ disc.title }}</h3>
+						<small>{{ disc.author }}</small>
+					</div>
+				</div>
+				<div v-if="objDisc" id="disc-details-container">
+					<div class="disc single-disc">
+						<img :src="objDisc.poster" />
+						<h3>{{ objDisc.title }}</h3>
+						<small>{{ objDisc.author }}</small>
+						<small>{{ objDisc.year }}</small>
+						<strong>{{ objDisc.genre }}</strong>
+						<div class="close-button-container">
+							<button @click="hideDetails" class="button close-button">X</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</main>
+
+	</div>
+
+	<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 	<script src="./js/script.js"></script>
 </body>
+
+</html><html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
+	<title>PHP Dischi con axios</title>
+	<link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+	<div id="app">
+
+		<header>
+			<div class="container" id="header-container">
+				<div class="header-left">
+					<img src="http://pluspng.com/img-png/spotify-logo-png-open-2000.png" alt="">
+				</div>
+			</div>
+		</header>
+
+		<main>
+			<div class="container">
+				<div id="discs-container">
+					<div class="disc" v-for="(disc, i) in arrDiscs" @click="showDiscDetails(i)">
+						<img :src="disc.poster" />
+						<h3>{{ disc.title }}</h3>
+						<small>{{ disc.author }}</small>
+					</div>
+				</div>
+				<div v-if="objDisc" id="disc-details-container">
+					<div class="disc single-disc">
+						<img :src="objDisc.poster" />
+						<h3>{{ objDisc.title }}</h3>
+						<small>{{ objDisc.author }}</small>
+						<small>{{ objDisc.year }}</small>
+						<strong>{{ objDisc.genre }}</strong>
+						<div class="close-button-container">
+							<button @click="hideDetails" class="button close-button">X</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</main>
+
+	</div>
+
+	<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+	<script src="./js/script.js"></script>
+</body>
+
 </html>
